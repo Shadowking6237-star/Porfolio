@@ -5,17 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mahi Prince Donald – Portfolio</title>
 <meta name="description" content="Portfolio de Prince : développement, déploiement et projets web.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Karla:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
   --bg:#eef1f6;--ink:#101a33;--muted:#55607a;--line:#c9d1e0;--accent:#2845e8;--accent-ink:#fff;
-  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
-  --body:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Helvetica Neue",Arial,system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
@@ -49,29 +46,21 @@ section{padding:3rem 0;border-top:1px solid var(--line)}
 .skills li{border:1px solid var(--line);padding:.4rem .9rem;border-radius:99px}
 footer{padding:3rem 0 4rem;border-top:1px solid var(--line);color:var(--muted)}
 footer a{color:var(--ink);font-weight:600}
-.toggle{font:600 .95rem var(--body);background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:.5rem;padding:.35rem .7rem;cursor:pointer}
-.toggle:hover{border-color:var(--accent)}
 nav{align-items:center;flex-wrap:wrap;gap:.5rem 1.25rem}
-.roleline strong{color:var(--accent)}
-.caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:2px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.rv{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
-.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.caret{animation:none}.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-</style>
+@media (prefers-reduced-motion:reduce){</style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <strong>Mahi Prince Donald</strong>
-  <nav aria-label="Navigation principale"><a href="#projets">Projets</a><a href="#formation">Formation</a><a href="#interets">Intérêts</a><a href="#competences">Compétences</a><a href="#contact">Contact</a><button id="theme" class="toggle" type="button" aria-label="Changer de thème">◐</button></nav>
+  <nav aria-label="Navigation principale"><a href="#projets">Projets</a><a href="#formation">Formation</a><a href="#interets">Intérêts</a><a href="#competences">Compétences</a><a href="#contact">Contact</a></nav>
 </header>
 
 <main>
 <div class="hero">
   <h1>Prince</h1>
   <p style="font-weight:700;margin-bottom:.5rem">Mahi Prince Donald, 20 ans</p>
-  <p class="roleline">Je suis <strong id="role">développeur web</strong><span class="caret" aria-hidden="true"></span><br>Je conçois, déploie et héberge des applications web utiles, depuis l’Afrique centrale.</p>
+  <p>Je suis développeur web. Je conçois, déploie et héberge des applications web utiles, depuis l’Afrique centrale.</p>
   <a class="btn" href="#contact">Me contacter</a>
 </div>
 
@@ -129,39 +118,8 @@ nav{align-items:center;flex-wrap:wrap;gap:.5rem 1.25rem}
 
 <footer id="contact">
   <h2>Contact</h2>
-  <p>Écris-moi à <a href="mailto:Shadowking237@icloud.com">Shadowking237@icloud.com</a> <button id="copy" class="toggle" type="button">Copier l’email</button></p>
+  <p>Écris-moi à <a href="mailto:Shadowking237@icloud.com">Shadowking237@icloud.com</a></p>
 </footer>
 </div>
-<script>
-(function(){
-  var root=document.documentElement;
-  var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved)}catch(e){}
-  document.getElementById('theme').addEventListener('click',function(){
-    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-    var next=cur==='dark'?'light':'dark';
-    root.setAttribute('data-theme',next);
-    try{localStorage.setItem('theme',next)}catch(e){}
-  });
-  var copy=document.getElementById('copy');
-  copy.addEventListener('click',function(){
-    var done=function(t){copy.textContent=t;setTimeout(function(){copy.textContent='Copier l’email'},2000)};
-    try{navigator.clipboard.writeText('Shadowking237@icloud.com').then(function(){done('Copié !')},function(){done('Copie impossible')})}catch(e){done('Copie impossible')}
-  });
-  var els=document.querySelectorAll('.proj,.skills li');
-  if('IntersectionObserver' in window&&!reduced){
-    els.forEach(function(e){e.classList.add('rv')});
-    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
-    els.forEach(function(e){io.observe(e)});
-  }
-  if(reduced)return;
-  var el=document.getElementById('role'),roles=['développeur web','responsable du déploiement','marketeur digital'],i=0,j=roles[0].length,del=true;
-  function tick(){
-    if(del){j--;el.textContent=roles[i].slice(0,j);if(j<=0){del=false;i=(i+1)%roles.length}setTimeout(tick,45)}
-    else{j++;el.textContent=roles[i].slice(0,j);if(j>=roles[i].length){del=true;setTimeout(tick,1800)}else setTimeout(tick,80)}
-  }
-  setTimeout(tick,1800);
-})();
-</script>
 </body>
 </html>
