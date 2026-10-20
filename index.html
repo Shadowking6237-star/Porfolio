@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mahi Prince Donald – Portfolio</title>
+<meta name="description" content="Portfolio de Prince : développement, déploiement et projets web.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#eef1f6;--ink:#101a33;--muted:#55607a;--line:#c9d1e0;--accent:#2845e8;--accent-ink:#fff;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0f1526;--ink:#e8ecf7;--muted:#9aa5c0;--line:#27304a;--accent:#7f95ff;--accent-ink:#0f1526;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0f1526;--ink:#e8ecf7;--muted:#9aa5c0;--line:#27304a;--accent:#7f95ff;--accent-ink:#0f1526;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:56rem;margin:0 auto;padding:0 1.25rem}
+header{padding:1.25rem 0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+nav{display:flex;gap:1.25rem}
+nav a{text-decoration:none;color:var(--muted);font-weight:600}
+nav a:hover{color:var(--ink)}
+.hero{padding:clamp(3rem,12vw,8rem) 0 clamp(2.5rem,8vw,5rem)}
+h1{font:800 clamp(4.5rem,24vw,13rem)/.85 var(--display);letter-spacing:-.045em;margin:0 0 1.5rem}
+.hero p{font-size:clamp(1.15rem,3vw,1.5rem);max-width:34rem;margin:0 0 2rem;line-height:1.45}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:.85rem 1.4rem;border-radius:.5rem;font-weight:600;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+h2{font:700 1.75rem/1.2 var(--display);letter-spacing:-.02em;margin:0 0 1.5rem}
+section{padding:3rem 0;border-top:1px solid var(--line)}
+.proj{display:grid;grid-template-columns:1fr;gap:.35rem 2rem;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+.proj:last-child{border-bottom:0}
+.proj h3{font:700 1.35rem/1.25 var(--display);margin:0}
+.proj p{margin:0;color:var(--muted);max-width:38rem}
+.tags{font-size:.95rem;color:var(--accent);font-weight:600}
+@media (min-width:44rem){.proj{grid-template-columns:14rem 1fr}.proj .tags{grid-column:1}.proj h3{grid-column:1}.proj p{grid-column:2;grid-row:1 / span 2}}
+.skills{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:0}
+.skills li{border:1px solid var(--line);padding:.4rem .9rem;border-radius:99px}
+footer{padding:3rem 0 4rem;border-top:1px solid var(--line);color:var(--muted)}
+footer a{color:var(--ink);font-weight:600}
+.toggle{font:600 .95rem var(--body);background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:.5rem;padding:.35rem .7rem;cursor:pointer}
+.toggle:hover{border-color:var(--accent)}
+nav{align-items:center;flex-wrap:wrap;gap:.5rem 1.25rem}
+.roleline strong{color:var(--accent)}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:2px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.rv{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <strong>Mahi Prince Donald</strong>
+  <nav aria-label="Navigation principale"><a href="#projets">Projets</a><a href="#formation">Formation</a><a href="#interets">Intérêts</a><a href="#competences">Compétences</a><a href="#contact">Contact</a><button id="theme" class="toggle" type="button" aria-label="Changer de thème">◐</button></nav>
+</header>
+
+<main>
+<div class="hero">
+  <h1>Prince</h1>
+  <p style="font-weight:700;margin-bottom:.5rem">Mahi Prince Donald, 20 ans</p>
+  <p class="roleline">Je suis <strong id="role">développeur web</strong><span class="caret" aria-hidden="true"></span><br>Je conçois, déploie et héberge des applications web utiles, depuis l’Afrique centrale.</p>
+  <a class="btn" href="#contact">Me contacter</a>
+</div>
+
+<section id="projets">
+  <h2>Projets</h2>
+  <article class="proj">
+    <h3>Appli de survie nutritionnelle pour enfants</h3>
+    <span class="tags">Git · Déploiement · Hébergement</span>
+    <p>Projet de groupe : une application qui aide les familles à mieux nourrir leurs enfants. J’ai pris en charge le dépôt Git, le déploiement et l’hébergement.</p>
+  </article>
+  <article class="proj">
+    <h3>Plateforme de gestion de réseaux sociaux</h3>
+    <span class="tags">Marketing digital · Web</span>
+    <p>Un outil pour planifier et publier sur plusieurs réseaux depuis un seul endroit, pour mon entreprise de marketing digital.</p>
+  </article>
+  <article class="proj">
+    <h3>Ton prochain projet ici</h3>
+    <span class="tags">À remplacer</span>
+    <p>Décris en deux phrases le problème, ce que tu as fait et le résultat.</p>
+  </article>
+</section>
+
+<section id="formation">
+  <h2>Formation</h2>
+  <article class="proj">
+    <h3>IUT, 2ᵉ année</h3>
+    <span class="tags">En cours</span>
+    <p>Actuellement en deuxième année à l’IUT.</p>
+  </article>
+  <article class="proj">
+    <h3>GCE Advanced Level</h3>
+    <span class="tags">Diplôme obtenu</span>
+    <p>Titulaire du GCE Advanced Level.</p>
+  </article>
+  <article class="proj">
+    <h3>GCE Ordinary Level</h3>
+    <span class="tags">Diplôme obtenu</span>
+    <p>Titulaire du GCE Ordinary Level.</p>
+  </article>
+</section>
+
+<section id="competences">
+  <h2>Compétences</h2>
+  <ul class="skills">
+    <li>HTML / CSS / JavaScript</li><li>Git et GitHub</li><li>Déploiement</li><li>Hébergement web</li><li>Marketing digital</li>
+  </ul>
+</section>
+<section id="interets">
+  <h2>Centres d’intérêt</h2>
+  <ul class="skills">
+    <li>Informatique</li><li>Développement web</li><li>Gaming</li><li>Anime et manga</li><li>Réseaux sociaux</li>
+  </ul>
+</section>
+</main>
+
+<footer id="contact">
+  <h2>Contact</h2>
+  <p>Écris-moi à <a href="mailto:Shadowking237@icloud.com">Shadowking237@icloud.com</a> <button id="copy" class="toggle" type="button">Copier l’email</button></p>
+</footer>
+</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved)}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+  var copy=document.getElementById('copy');
+  copy.addEventListener('click',function(){
+    var done=function(t){copy.textContent=t;setTimeout(function(){copy.textContent='Copier l’email'},2000)};
+    try{navigator.clipboard.writeText('Shadowking237@icloud.com').then(function(){done('Copié !')},function(){done('Copie impossible')})}catch(e){done('Copie impossible')}
+  });
+  var els=document.querySelectorAll('.proj,.skills li');
+  if('IntersectionObserver' in window&&!reduced){
+    els.forEach(function(e){e.classList.add('rv')});
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
+    els.forEach(function(e){io.observe(e)});
+  }
+  if(reduced)return;
+  var el=document.getElementById('role'),roles=['développeur web','responsable du déploiement','marketeur digital'],i=0,j=roles[0].length,del=true;
+  function tick(){
+    if(del){j--;el.textContent=roles[i].slice(0,j);if(j<=0){del=false;i=(i+1)%roles.length}setTimeout(tick,45)}
+    else{j++;el.textContent=roles[i].slice(0,j);if(j>=roles[i].length){del=true;setTimeout(tick,1800)}else setTimeout(tick,80)}
+  }
+  setTimeout(tick,1800);
+})();
+</script>
+</body>
+</html>
